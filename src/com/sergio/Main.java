@@ -51,7 +51,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("enter a song title.");
 		String title = scanner.nextLine();
-		
+		scanner.close();
 		songArtists = datasource.querySongInfoView(title);
 		if (songArtists.isEmpty()) {
 			System.out.println("couldn't find the artist for the song");
@@ -63,6 +63,8 @@ public class Main {
 					+ artist.getAlbumName() + "Track number= " + artist.getTrack());
 		}
 
+		datasource.insertSong("Bird Dog", "Everly Dogs", "Bob Dylan's Greatest Hits", 5);
+		
 		datasource.close();
 	}
 
